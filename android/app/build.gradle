@@ -1,0 +1,32 @@
+// Apply necessary plugins
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'  // Firebase plugin
+
+android {
+    namespace = "com.example.shoe_shop"
+    compileSdk 33  // Ensure this is up to date
+
+    defaultConfig {
+        applicationId "com.example.shoe_shop"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug  // Use release signingConfig if available
+        }
+    }
+}
+
+// Ensure the Google services plugin is applied at the bottom
+apply plugin: 'com.google.gms.google-services'
